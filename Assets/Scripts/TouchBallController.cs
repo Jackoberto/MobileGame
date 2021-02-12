@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BallFollowPointer : MonoBehaviour
+public class TouchBallController : MonoBehaviour
 {
     public float acceleration;
     private Rigidbody _rigidbody;

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class InputSystem : MonoBehaviour
+public class CompassBallController : MonoBehaviour
 {
     public Transform compass, transformDirection;
     private Vector3 _lastUpdatedRotation;
@@ -22,10 +22,6 @@ public class InputSystem : MonoBehaviour
     private void FixedUpdate()
     {
         CompassControls();
-        //_lastUpdatedRotation = new Vector3(0, 0, Input.compass.magneticHeading);
-        //rotation = Quaternion.Euler(0, 0, Input.compass.magneticHeading);
-        //if (Mathf.Abs((_lastUpdatedRotation - rotation.eulerAngles).magnitude) > 5)
-        //compass.eulerAngles = Vector3.RotateTowards(rotation.eulerAngles, _lastUpdatedRotation, 10, 1f);
     }
 
     private void CompassControls()
@@ -43,11 +39,6 @@ public class InputSystem : MonoBehaviour
         Debug.Log("Transform Direction " + transformDirection.forward);
         Debug.Log("Transform Rotation " + transform.rotation);
         _rigidbody.velocity = transformDirection.forward * (_speed * Time.deltaTime);
-    }
-
-    private void Accelerometer()
-    {
-        _rigidbody.AddForce(new Vector3(Input.acceleration.x, 0, Input.acceleration.y) * (_speed * Time.deltaTime));
     }
 
     IEnumerator Rotate(Transform trans, Vector3 target, float duration)

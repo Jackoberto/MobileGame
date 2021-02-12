@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragBallControl : MonoBehaviour
+public class PathBallController : MonoBehaviour
 {
     public float acceleration;
     private Queue<Vector3> _vector3s = new Queue<Vector3>();
